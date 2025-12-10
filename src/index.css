@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gradient-to-br from-blue-50 via-purple-50 to-white min-h-screen;
-  font-family: 'Inter', sans-serif;
+  @apply bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen;
+  font-family: "Inter", sans-serif;
 }
