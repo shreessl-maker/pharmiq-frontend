@@ -1,8 +1,9 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Optional custom global styling */
 body {
-  @apply bg-gradient-to-br from-blue-100 via-purple-100 to-white text-gray-800;
+  @apply bg-gradient-to-br from-sky-100 to-indigo-100 min-h-screen flex items-center justify-center;
+  font-family: "Inter", sans-serif;
 }
