@@ -1,17 +1,12 @@
-import { Link } from "react-router-dom";
+import React from "react";
 
-export default function Sidebar({ links }) {
+export default function Sidebar({ menu }) {
   return (
-    <div className="w-56 bg-white shadow-md h-full p-4">
-      <ul className="space-y-4">
-        {links.map((link) => (
-          <li key={link.label}>
-            <Link
-              to={link.path}
-              className="block px-3 py-2 rounded hover:bg-purple-100 text-primary font-medium"
-            >
-              {link.label}
-            </Link>
+    <div className="w-56 bg-white shadow-md p-4">
+      <ul>
+        {menu.map((item, index) => (
+          <li key={index} className="py-2 px-3 hover:bg-purple-100 rounded-md cursor-pointer">
+            {item}
           </li>
         ))}
       </ul>
