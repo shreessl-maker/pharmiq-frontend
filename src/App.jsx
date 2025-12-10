@@ -1,19 +1,21 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
-import DashboardSuperAdmin from "./pages/DashboardSuperAdmin";
-import DashboardAdmin from "./pages/DashboardAdmin";
-import DashboardStaff from "./pages/DashboardStaff";
+import Dashboard from "./pages/Dashboard";
 
 export default function App() {
-  const role = localStorage.getItem("role");
+  const isLoggedIn = !!localStorage.getItem("userRole");
 
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/superadmin" element={role === "superadmin" ? <DashboardSuperAdmin /> : <Navigate to="/" />} />
-      <Route path="/admin" element={role === "admin" ? <DashboardAdmin /> : <Navigate to="/" />} />
-      <Route path="/staff" element={role === "staff" ? <DashboardStaff /> : <Navigate to="/" />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />}
+        />
+        <Route path="*" element={<Navigate to="/login" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
